@@ -1,0 +1,67 @@
+<header>
+    <h2>{{heading}}</h2>
+
+  </header>
+    
+  <article>
+    <form #employeeDetailsForm='ngForm'>
+      <div  >
+       <mat-form-field>
+        <input matInput #input placeholder="Empid" name="empid"  #empid="ngModel" required [(ngModel)]="emp.empid">
+      </mat-form-field>
+      <br>
+      <span *ngIf="(empid.invalid && empid.touched)" class="validation">
+        Employee Name is 
+      </span>
+      <br>
+      <mat-form-field>
+        <input matInput #input placeholder="Designation" name="designation" #designation="ngModel" required [(ngModel)]="emp.designation">
+      </mat-form-field>
+      <br>
+      <span *ngIf="(designation.invalid && designation.touched)" class="validation">
+        designation is required
+      </span>
+      <br>
+      <mat-form-field>
+        <input matInput #input placeholder="Projectname" name="projectname" #projectname="ngModel" required [(ngModel)]="emp.projectname"> 
+      </mat-form-field>
+      <br>
+      <span *ngIf="(projectname.invalid && projectname.touched)" class="validation">
+        projectName is required
+      </span>
+      <br>
+  
+      <mat-form-field>
+        <input matInput #input type="number" placeholder="salary" name="salary" #salary="ngModel" required [(ngModel)]="emp.salary">
+      </mat-form-field>
+      <br>
+      <span *ngIf ="(salary.invalid && salary.touched)" class="validation">
+        salary is required
+      </span>
+    <br>
+      <mat-form-field>
+        <input matInput #input type="number" placeholder="experience" name="experience" #experience="ngModel" required [(ngModel)]="emp.experience">
+    
+      </mat-form-field>
+      <br>
+      <span *ngIf="(experience.invalid && experience.touched)" class="validation">
+        experience is required
+      </span>
+      
+  <br>
+      <mat-form-field>
+        <input matInput required [matDatepicker]="picker" name="dateofjoining" #dateofjoining="ngModel" [(ngModel)]="emp.dateofjoining"  placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <span *ngIf="(dateofjoining.invalid && dateofjoining.touched)" class="validation">
+       Date is required
+    </span>
+    <br>
+    <button mat-button color="primary" (click)="submit(employeeDetailsForm)">Submit</button>
+      </div>
+    </form> 
+    </article>
+    
+  <br><br>

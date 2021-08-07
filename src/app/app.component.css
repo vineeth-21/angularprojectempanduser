@@ -1,0 +1,46 @@
+.logout {
+    position: absolute;
+    top : 10px;
+    right: 11px;
+    font-size:18px;
+}
+.email{
+  float: left;
+  font-size: initial;
+}
+.user {
+    position: absolute;
+    top : 10px;
+    right: 100px;
+    font-size:18px;
+}
+.employee {
+    position: absolute;
+    top: 10px;
+    right: 220px;
+    font-size: 18px;
+  }
+  article {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+  }
+   
+  header {
+    background-color:rgb(79, 86, 94);
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+  }
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }

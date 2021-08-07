@@ -1,0 +1,41 @@
+ <header>
+ <h2>{{name}}</h2>
+</header>
+<article>
+    <form>
+        <mat-form-field>
+        
+            <input matInput  placeholder="empid" [(ngModel)] = "employee.empid" name="empid"> 
+         </mat-form-field>
+        <br>
+         <mat-form-field>
+            
+             <input matInput placeholder="designation" [(ngModel)] = "employee.designation" name="designation">
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+              
+             <input matInput placeholder="projectname"[(ngModel)] = "employee.projectname" name="projectname">
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+             
+             <input matInput placeholder="salary" [(ngModel)] = "employee.salary" name="salary">
+         </mat-form-field>
+         <br>
+         <mat-form-field>
+              
+             <input matInput placeholder="experience" [(ngModel)] = "employee.experience" name="experience">
+         </mat-form-field>
+         <br>
+
+<section>
+    <div class="example-button-row">
+        <br>
+        <button mat-stroked-button color (click)="update()">Update</button>
+    </div>
+</section>
+
+</form>
+</article>
+

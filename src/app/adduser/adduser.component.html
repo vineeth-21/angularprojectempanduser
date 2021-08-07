@@ -1,0 +1,48 @@
+<header>
+    <h1>{{title}}</h1>
+</header>
+<article>
+    <form #userDetails='ngForm'>
+        <mat-form-field>
+            <input matInput #input placeholder="Emailid" name="Emailid" #Emailid="ngModel" required [(ngModel)]="user.emailid">
+        </mat-form-field>
+        <br>
+        <span *ngIf="(Emailid.invalid && Emailid.touched)" class="validation">
+            Emailid is required
+        </span>
+        <br>
+        <mat-form-field>
+            <input matInput type="password" #input placeholder="Password" name="Password" #Password="ngModel" required [(ngModel)]="user.Password">
+        </mat-form-field>
+        <br>
+        <span *ngIf="(Password.invalid && Password.touched)" class="validation">
+            Passsword is required
+        </span>
+        <br>
+        <mat-form-field>
+            <input matInput #input placeholder="Role" name="Role" #Role="ngModel" required [(ngModel)]="user.Role">
+        </mat-form-field>
+        <br>
+        <span *ngIf="(Role.invalid && Role.touched)" class="validation">
+            Role is required
+        </span>
+        <br>
+        <mat-form-field>
+            <input matInput #input placeholder="status" name="Status" #Status="ngModel" required [(ngModel)]="user.Status">
+        </mat-form-field>
+        <br>
+        <span *ngIf="(Status.invalid && Status.touched)" class="validation">
+            Status is required
+        </span>
+        <br>
+        <mat-form-field>
+            <input matInput #input placeholder="Name" name="Name" #Name="ngModel" required [(ngModel)]="user.Name">
+        </mat-form-field>
+        <br>
+        <span *ngIf="(Name.invalid && Name.touched)">
+            Name is Required
+        </span>
+        <br>
+        <button mat-button color="primary" (click)="submit(userDetails)">Submit</button>
+    </form>
+</article>

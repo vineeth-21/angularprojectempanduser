@@ -1,0 +1,30 @@
+<header>
+    <h2>{{title}}</h2>
+</header>
+<article>
+    <form>
+    <mat-form-field>
+        <input matInput placeholder="Emailid" [(ngModel)]="user.emailid" name="Emailid">     
+    </mat-form-field>
+   <br>
+    <mat-form-field>
+          <input matInput placeholder="Role"[(ngModel)] = "user.role" name="Role">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        
+        <input matInput placeholder="Status" [(ngModel)] = "user.status" name="Status">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+         
+        <input matInput placeholder="Name" [(ngModel)] = "user.name" name="Name">
+    </mat-form-field>
+    <br>
+    <section>
+        <div class="example-button-row">
+           <button mat-button color (click)="update(user)">Update</button>
+        </div>
+    </section>
+</form>
+</article>

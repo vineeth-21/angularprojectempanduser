@@ -1,0 +1,63 @@
+<header>
+<h2>{{name}}</h2>
+
+</header>
+ 
+<section>
+    <div class="example-button-row">
+    <button mat-stroked-button (click)="addemployee()">Add Employee</button>
+</div>
+</section>
+  
+
+   <body>
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+        <ng-container matColumnDef="empid">
+            
+           <th mat-header-cell *matHeaderCellDef mat-sort-header> Empid </th>
+           <td mat-cell *matCellDef="let element"> {{element.empid}} </td>
+         </ng-container>
+    <ng-container matColumnDef="designation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Designation</th>
+        <td mat-cell *matCellDef ="let element">{{element.designation}}</td>
+    </ng-container>
+    <ng-container matColumnDef="projectname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</th>
+        <td mat-cell *matCellDef ="let element">{{element.projectname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Salary</th>
+        <td mat-cell *matCellDef ="let element">{{element.salary}}</td>
+    </ng-container>
+    <ng-container matColumnDef="experience">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Experience</th>
+        <td mat-cell *matCellDef ="let element">{{element.experience}}</td>
+    </ng-container>
+    <ng-container matColumnDef="dateofjoining">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date of Joining</th>
+        <td mat-cell *matCellDef="let element">{{element.dateofjoining | date:'short'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-stroked-button  routerLink="/employeeupdate/{{element.empid}}">
+            <mat-icon matSuffix><span class="material-icons">edit</span> </mat-icon>
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-stroked-button color (click)="delete(element.empid)">
+                <mat-icon matSuffix><span class="material-icons">delete</span></mat-icon>
+            </button>
+            
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+ 
+<mat-paginator   [length]="totalcount" (page)="onPagination($event)" [pageSize]="5"
+[pageSizeOptions]="[1,5, 10, 25, 50]" [showFirstLastButtons]="true">
+</mat-paginator>
+</body>

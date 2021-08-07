@@ -1,0 +1,48 @@
+
+<header>
+    <h1>{{title}}</h1>
+</header>
+<section>
+    <div class="example-button-row">
+        
+        <button  mat-raised-button color routerLink="/adduser">ADD USER</button>
+ </div>
+</section>
+<body>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+ <ng-container matColumnDef="emailid">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header>Email Id</th>
+  <td mat-cell *matCellDef="let element">{{element.emailid}}</td>
+ </ng-container>
+ <ng-container matColumnDef="role">
+     <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+     <td mat-cell *matCellDef="let element">{{element.role}}</td>
+ </ng-container>
+ <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button routerLink="/userupdate/{{element.emailid}}"><span class="material-icons">
+            edit
+            </span></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button (click)="remove(element.emailid)"><span class="material-icons">
+              delete
+              </span></button>
+      </td>
+  </ng-container>
+ <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+ <tr mat-row *matRowDef="let row;columns : displayedColumns"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,15,20]" showFirstLastButton></mat-paginator>
+</body>
